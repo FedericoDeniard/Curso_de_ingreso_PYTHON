@@ -42,7 +42,7 @@ class App(customtkinter.CTk):
         firstNumber = int(self.txt_operador_a.get())
         secondNumber = int(self.txt_operador_b.get())
         result = firstNumber + secondNumber
-        alert("Resultado", "El resultado es: {} ".format(result))
+        alert("Resultado", f"El resultado es: {result} ")
      
         
 if __name__ == "__main__":

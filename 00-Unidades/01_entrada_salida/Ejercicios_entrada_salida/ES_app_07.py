@@ -52,24 +52,24 @@ class App(customtkinter.CTk):
         firstNumber = int(self.txt_operador_a.get())
         secondNumber = int(self.txt_operador_b.get())
         result = firstNumber + secondNumber
-        alert("Suma",  "La suma de {} y {} es: {}".format(firstNumber, secondNumber, result))
+        alert("Suma",  f"La suma de {firstNumber} y {secondNumber} es: {result}")
     def btn_restar_on_click(self):
         firstNumber = int(self.txt_operador_a.get())
         secondNumber = int(self.txt_operador_b.get())
         result = firstNumber - secondNumber
-        alert("Suma",  "La resta de {} y {} es: {}".format(firstNumber, secondNumber, result))
+        alert("Suma",  f"La resta de {firstNumber} y {secondNumber} es: {result}")
 
     def btn_multiplicar_on_click(self):
         firstNumber = int(self.txt_operador_a.get())
         secondNumber = int(self.txt_operador_b.get())
         result = firstNumber * secondNumber
-        alert("Suma",  "La multiplicación de {} y {} es: {}".format(firstNumber, secondNumber, result))
+        alert("Suma",  f"La multiplicación de {firstNumber} y {secondNumber} es: {result}")
 
     def btn_dividir_on_click(self):
         firstNumber = int(self.txt_operador_a.get())
         secondNumber = int(self.txt_operador_b.get())
         result = firstNumber // secondNumber
-        alert("Suma",  "La división de {} y {} es: {}".format(firstNumber, secondNumber, result))
+        alert("Suma",  f"La división de {firstNumber} y {secondNumber} es: {result}")
         
 if __name__ == "__main__":
     app = App()

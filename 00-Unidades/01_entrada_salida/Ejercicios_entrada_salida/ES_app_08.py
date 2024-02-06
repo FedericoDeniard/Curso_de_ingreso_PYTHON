@@ -43,7 +43,7 @@ class App(customtkinter.CTk):
         firstNumber = int(self.txt_operador_a.get())
         secondNumber = int(self.txt_operador_b.get())
         result = firstNumber % secondNumber
-        alert("Resultado", "El resto es de: {}".format(result))
+        alert("Resultado", f"El resto es de: {result}")
 
         
         

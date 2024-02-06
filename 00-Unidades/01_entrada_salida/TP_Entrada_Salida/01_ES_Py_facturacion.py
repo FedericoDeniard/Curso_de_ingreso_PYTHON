@@ -56,21 +56,21 @@ class App(customtkinter.CTk):
         second = int(self.txt_importe_2.get())
         third = int(self.txt_importe_3.get())
         total = first + second + third
-        alert("Suma", "La suma de los productos es de {}$".format(total))
+        alert("Suma", f"La suma de los productos es de {total}$")
 
     def btn_promedio_on_click(self):
         first = int(self.txt_importe_1.get())
         second = int(self.txt_importe_2.get())
         third = int(self.txt_importe_3.get())
         total = (first + second + third) / 3
-        alert("Suma", "El promedio de los productos es de {}$".format(total))
+        alert("Suma", f"El promedio de los productos es de {total}$")
 
     def btn_total_iva_on_click(self):
         first = int(self.txt_importe_1.get())
         second = int(self.txt_importe_2.get())
         third = int(self.txt_importe_3.get())
         total = (first + second + third) * 1.21
-        alert("Suma", "El promedio de los productos es de {}$ con IVA incluido".format(total))      
+        alert("Suma", f"El promedio de los productos es de {total}$ con IVA incluido")      
 
     # Para el departamento de facturación:
     # A.	Ingresar tres precios de productos y mostrar la suma de los mismos.

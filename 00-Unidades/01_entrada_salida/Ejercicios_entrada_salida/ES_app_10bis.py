@@ -44,7 +44,7 @@ class App(customtkinter.CTk):
         price = int(self.txt_importe.get())
         descuento = int(self.txt_descuento.get())
         total = price - (price * (descuento / 100))
-        alert("Total", "El precio  es de {}$, pero con el descuento es de: {}$ ".format(price,total))
+        alert("Total", f"El precio  es de {price}$, pero con el descuento es de: {total}$ ")
 
 
 if __name__ == "__main__":
