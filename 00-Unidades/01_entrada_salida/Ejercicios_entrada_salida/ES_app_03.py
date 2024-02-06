@@ -34,8 +34,8 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        favCarBrand = self.txt_nombre.get()
-        alert(title="Auto", message="Tu marca de auto favorita es: " + favCarBrand)
+        autoFavorito = self.txt_nombre.get()
+        alert(title="Auto", message="Tu marca de auto favorita es: " + autoFavorito)
                 
     
 if __name__ == "__main__":

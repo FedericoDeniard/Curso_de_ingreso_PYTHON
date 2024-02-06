@@ -49,28 +49,29 @@ class App(customtkinter.CTk):
         self.btn_dividir.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_sumar_on_click(self):
-        firstNumber = int(self.txt_operador_a.get())
-        secondNumber = int(self.txt_operador_b.get())
-        result = firstNumber + secondNumber
-        alert("Suma",  f"La suma de {firstNumber} y {secondNumber} es: {result}")
+        primerNumero = int(self.txt_operador_a.get())
+        segundoNumero = int(self.txt_operador_b.get())
+        resultado = primerNumero + segundoNumero
+        alert("Suma",  f"La suma de {primerNumero} y {segundoNumero} es: {resultado}")
     def btn_restar_on_click(self):
-        firstNumber = int(self.txt_operador_a.get())
-        secondNumber = int(self.txt_operador_b.get())
-        result = firstNumber - secondNumber
-        alert("Suma",  f"La resta de {firstNumber} y {secondNumber} es: {result}")
+        primerNumero = int(self.txt_operador_a.get())
+        segundoNumero = int(self.txt_operador_b.get())
+        resultado = primerNumero - segundoNumero
+        alert("Suma",  f"La resta de {primerNumero} y {segundoNumero} es: {resultado}")
 
     def btn_multiplicar_on_click(self):
-        firstNumber = int(self.txt_operador_a.get())
-        secondNumber = int(self.txt_operador_b.get())
-        result = firstNumber * secondNumber
-        alert("Suma",  f"La multiplicación de {firstNumber} y {secondNumber} es: {result}")
+        primerNumero = int(self.txt_operador_a.get())
+        segundoNumero = int(self.txt_operador_b.get())
+        resultado = primerNumero * segundoNumero
+        alert("Suma",  f"La multiplicación de {primerNumero} y {segundoNumero} es: {resultado}")
 
     def btn_dividir_on_click(self):
-        firstNumber = int(self.txt_operador_a.get())
-        secondNumber = int(self.txt_operador_b.get())
-        result = firstNumber // secondNumber
-        alert("Suma",  f"La división de {firstNumber} y {secondNumber} es: {result}")
-        
+        primerNumero = int(self.txt_operador_a.get())
+        segundoNumero = int(self.txt_operador_b.get())
+        resultado = primerNumero // segundoNumero
+        alert("Suma",  f"La división de {primerNumero} y {segundoNumero} es: {resultado}")
+
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
