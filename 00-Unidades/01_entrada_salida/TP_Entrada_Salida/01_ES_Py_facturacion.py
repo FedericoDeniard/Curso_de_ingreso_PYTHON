@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:     Federico
+apellido:   Deniard
 ---
 TP: ES_Facturaciones
 ---
@@ -51,14 +51,31 @@ class App(customtkinter.CTk):
         self.btn_total_iva = customtkinter.CTkButton(master=self, text="TOTAL c/IVA", command=self.btn_total_iva_on_click)
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
-    def btn_total_on_click(self):
-        pass
+    def btn_total_on_click(self): #Departamento de facturación
+        first = int(self.txt_importe_1.get())
+        second = int(self.txt_importe_2.get())
+        third = int(self.txt_importe_3.get())
+        total = first + second + third
+        alert("Suma", "La suma de los productos es de {}$".format(total))
 
     def btn_promedio_on_click(self):
-        pass
+        first = int(self.txt_importe_1.get())
+        second = int(self.txt_importe_2.get())
+        third = int(self.txt_importe_3.get())
+        total = (first + second + third) / 3
+        alert("Suma", "El promedio de los productos es de {}$".format(total))
 
     def btn_total_iva_on_click(self):
-        pass      
+        first = int(self.txt_importe_1.get())
+        second = int(self.txt_importe_2.get())
+        third = int(self.txt_importe_3.get())
+        total = (first + second + third) * 1.21
+        alert("Suma", "El promedio de los productos es de {}$ con IVA incluido".format(total))      
+
+    # Para el departamento de facturación:
+    # A.	Ingresar tres precios de productos y mostrar la suma de los mismos.
+    # B.	Ingresar tres precios de productos y mostrar el promedio de los mismos.
+	# C.	ingresar tres precios de productos sumarlos y mostrar el precio final (más IVA 21%).
     
 if __name__ == "__main__":
     app = App()
