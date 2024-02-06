@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:     Federico   
+apellido:   Deniard
 ---
 Ejercicio: entrada_salida_02
 ---
@@ -25,9 +25,9 @@ class App(customtkinter.CTk):
         self.btn_mostrar = customtkinter.CTkButton(master=self, text="Mostrar", command=self.btn_mostrar_on_click)
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
-
     def btn_mostrar_on_click(self):
-        pass
+        favFood = prompt(prompt="Ingrese su comida favorita", title="Comida Favorita")
+        alert("Comida", "Tu comida favorita es: " + favFood)
         
         
     
