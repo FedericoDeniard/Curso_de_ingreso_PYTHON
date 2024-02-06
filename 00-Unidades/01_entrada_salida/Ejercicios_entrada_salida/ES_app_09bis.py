@@ -42,7 +42,7 @@ class App(customtkinter.CTk):
         salary = int(self.txt_sueldo.get())
         percentage = int(self.txt_incremento.get())
         result = salary * (percentage / 100) + salary
-        alert("Sueldo", "Tu sueldo actualizado con el porcentaje de {} es de: {}".format(percentage, result))
+        alert("", f"Tu sueldo actualizado con el porcentaje de {percentage} es de: {result}")
         
     
 if __name__ == "__main__":
