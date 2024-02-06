@@ -68,7 +68,7 @@ class App(customtkinter.CTk):
     def btn_dividir_on_click(self):
         firstNumber = int(self.txt_operador_a.get())
         secondNumber = int(self.txt_operador_b.get())
-        result = firstNumber / secondNumber
+        result = firstNumber // secondNumber
         alert("Suma",  "La división de {} y {} es: {}".format(firstNumber, secondNumber, result))
         
 if __name__ == "__main__":
