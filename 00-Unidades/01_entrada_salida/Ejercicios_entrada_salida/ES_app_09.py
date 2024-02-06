@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:     Federico
+apellido:   Deniard
 ---
 Ejercicio: entrada_salida_09
 ---
@@ -33,7 +33,9 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        salary = int(self.txt_sueldo.get())
+        newSalary =  round(salary * 1.15) # La función round() es para redondear el número.
+        alert("Sueldo actualizado" , "El sueldo es de {} con el aumento".format(newSalary))
         
     
 if __name__ == "__main__":
