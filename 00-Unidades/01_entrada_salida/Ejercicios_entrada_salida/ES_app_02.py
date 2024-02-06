@@ -26,8 +26,8 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
     def btn_mostrar_on_click(self):
-        comidaFavorita = prompt(prompt="Ingrese su comida favorita", title="Comida Favorita")
-        alert("Comida", "Tu comida favorita es: " + comidaFavorita)
+        comida_favorita = prompt(prompt="Ingrese su comida favorita", title="Comida Favorita")
+        alert("Comida", "Tu comida favorita es: " + comida_favorita)
         
         
     

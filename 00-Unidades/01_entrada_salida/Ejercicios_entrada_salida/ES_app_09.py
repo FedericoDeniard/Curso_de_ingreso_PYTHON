@@ -34,8 +34,8 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         salario = int(self.txt_sueldo.get())
-        nuevoSalario =  round(salario * 1.15) # La función round() es para redondear el número.
-        alert("Sueldo actualizado" , f"El sueldo es de {nuevoSalario} con el aumento")
+        nuevo_salario =  round(salario * 1.15) # La función round() es para redondear el número.
+        alert("Sueldo actualizado" , f"El sueldo es de {nuevo_salario} con el aumento")
         
     
 if __name__ == "__main__":
