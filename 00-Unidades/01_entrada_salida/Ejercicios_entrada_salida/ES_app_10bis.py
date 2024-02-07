@@ -41,8 +41,10 @@ class App(customtkinter.CTk):
         self.btn_mostrar.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
     def btn_mostrar_on_click(self):
-        precio = int(self.txt_importe.get())
-        descuento = int(self.txt_descuento.get())
+        precio = self.txt_importe.get()
+        precio = int(precio)
+        descuento = self.txt_descuento.get()
+        descuento = int(descuento)
         total = precio - (precio * (descuento / 100))
         alert("Total", f"El precio  es de {precio}$, pero con el descuento es de: {total}$ ")
 

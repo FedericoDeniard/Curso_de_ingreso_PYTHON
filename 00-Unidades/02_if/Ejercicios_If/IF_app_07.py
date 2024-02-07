@@ -42,7 +42,8 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        edad = int(self.txt_edad.get())
+        edad = self.txt_edad.get()
+        edad = int(edad)
         estado = self.combobox_tipo.get()
         if  estado == "NATIVO" and  edad >= 16:
             alert("","Está habilitado a votar")

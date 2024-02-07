@@ -52,24 +52,36 @@ class App(customtkinter.CTk):
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_total_on_click(self): #Departamento de facturación
-        first = int(self.txt_importe_1.get())
-        second = int(self.txt_importe_2.get())
-        third = int(self.txt_importe_3.get())
-        total = first + second + third
+        first_product = self.txt_importe_1.get()
+        first_product = int(first_product)
+        second_product = self.txt_importe_2.get()
+        second_product = int(second_product)
+        third_product = int(self.txt_importe_3.get())
+        third_product = int(third_product)
+
+        total = first_product + second_product + third_product
         alert("Suma", f"La suma de los productos es de {total}$")
 
     def btn_promedio_on_click(self):
-        first = int(self.txt_importe_1.get())
-        second = int(self.txt_importe_2.get())
-        third = int(self.txt_importe_3.get())
-        total = (first + second + third) / 3
+        first_product = self.txt_importe_1.get()
+        first_product = int(first_product)
+        second_product = self.txt_importe_2.get()
+        second_product = int(second_product)
+        third_product = int(self.txt_importe_3.get())
+        third_product = int(third_product)
+        
+        total = (first_product + second_product + third_product) / 3
         alert("Suma", f"El promedio de los productos es de {total}$")
 
     def btn_total_iva_on_click(self):
-        first = int(self.txt_importe_1.get())
-        second = int(self.txt_importe_2.get())
-        third = int(self.txt_importe_3.get())
-        total = (first + second + third) * 1.21
+        first_product = self.txt_importe_1.get()
+        first_product = int(first_product)
+        second_product = self.txt_importe_2.get()
+        second_product = int(second_product)
+        third_product = int(self.txt_importe_3.get())
+        third_product = int(third_product)
+
+        total = (first_product + second_product + third_product) * 1.21
         alert("Suma", f"El promedio de los productos es de {total}$ con IVA incluido")      
 
     # Para el departamento de facturación:

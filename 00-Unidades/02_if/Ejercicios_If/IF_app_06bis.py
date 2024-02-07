@@ -39,7 +39,8 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        altura = int(self.txt_altura.get())
+        altura = self.txt_altura.get()
+        altura = int(altura)
         if  altura < 160:
             alert("", "Base")
         elif  160 <= altura <= 179:
