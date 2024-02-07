@@ -51,7 +51,7 @@ class App(customtkinter.CTk):
     
     def btn_cantidad_camiones_on_click(self):
         toneladas = int(self.txt_toneladas.get())
-        camiones = math.ceil(toneladas / 3500)
+        camiones = math.ceil(toneladas / 3500)      # math.ceil redondea el número hacía el entero cercano más alto
         alert("",f"necesitas {camiones} camiones")
 
     def btn_tiempo_llegada_on_click(self):
