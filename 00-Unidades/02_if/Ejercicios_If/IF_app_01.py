@@ -37,7 +37,7 @@ class App(customtkinter.CTk):
         if edad == 18:
             alert("", f"Usted tiene 18 años")
         else:
-            alert("", "Usted no tiene 18 años")
+            pass
 
          
 if __name__ == "__main__":
