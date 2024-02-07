@@ -36,7 +36,8 @@ class App(customtkinter.CTk):
     def btn_mostrar_on_click(self):
         precio = self.txt_importe.get()
         precio = int(precio)
-        total = precio - (precio * 0.20)
+        descuento = 20
+        total = precio - (precio * (descuento / 100))
         alert("Total",f"El precio es {precio}$, pero con el descuento te queda en: {total}$")
 
 
