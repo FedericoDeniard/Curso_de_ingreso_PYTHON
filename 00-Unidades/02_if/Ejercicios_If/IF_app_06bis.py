@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:     Federico
+apellido:   Deniard
 ---
 Ejercicio: if_06bis
 ---
@@ -39,7 +39,15 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        altura = int(self.txt_altura.get())
+        if  altura < 160:
+            alert("", "Base")
+        elif  160 <= altura <= 179:
+            alert("", "Escolta")
+        elif 180 <= altura <= 199:
+            alert("","Alero")
+        elif 200 <= altura:
+            alert("","Pívot")
 
         
         
