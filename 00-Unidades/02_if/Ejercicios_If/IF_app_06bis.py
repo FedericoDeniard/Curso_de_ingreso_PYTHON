@@ -42,13 +42,14 @@ class App(customtkinter.CTk):
         altura = self.txt_altura.get()
         altura = int(altura)
         if  altura < 160:
-            alert("", "Base")
+            mensaje = "Base"
         elif  altura < 181:
-            alert("", "Escolta")
+            mensaje = "Escolta"
         elif altura < 200:
-            alert("","Alero")
+            mensaje = "Alero"
         else:
-            alert("","Pívot")
+            mensaje = "Pivot"
+        alert("",mensaje)
 
         
         
