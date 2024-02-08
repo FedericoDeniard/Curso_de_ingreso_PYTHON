@@ -38,7 +38,7 @@ class App(customtkinter.CTk):
         if altura >= 1.80:
             alert("","Sos pivot")
         else:
-            pass
+            alert("","No sos pivot")
 
 
 if __name__ == "__main__":
