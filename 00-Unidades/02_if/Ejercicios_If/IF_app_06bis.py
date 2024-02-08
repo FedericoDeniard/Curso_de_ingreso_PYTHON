@@ -43,11 +43,11 @@ class App(customtkinter.CTk):
         altura = int(altura)
         if  altura < 160:
             alert("", "Base")
-        elif  160 <= altura <= 179:
+        elif  altura < 181:
             alert("", "Escolta")
-        elif 180 <= altura <= 199:
+        elif altura < 200:
             alert("","Alero")
-        elif 200 <= altura:
+        else:
             alert("","Pívot")
 
         
