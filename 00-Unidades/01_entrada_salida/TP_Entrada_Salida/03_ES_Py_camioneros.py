@@ -58,7 +58,7 @@ class App(customtkinter.CTk):
     def btn_tiempo_llegada_on_click(self):
         distancia = self.txt_kilometros.get()
         distancia = int(distancia)
-        tiempo = distancia/90 
+        tiempo = round(distancia/90,2)
         alert("", f"El camión va a tardar {tiempo} horas")
     
     
