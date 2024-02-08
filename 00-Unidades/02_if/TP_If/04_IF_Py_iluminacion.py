@@ -47,30 +47,35 @@ class App(customtkinter.CTk):
         marca = self.combobox_marca.get()
         cantidad = self.combobox_cantidad.get()
         cantidad = int(cantidad)
-        descuento = 100
-        if  cantidad >= 6:
-            descuento = 50
+        if  cantidad > 5:
+            descuento_unidad_marca = 50
         elif cantidad == 5 and marca == "ArgentinaLuz":
-            descuento = 40
+            descuento_unidad_marca = 40
         elif cantidad == 5 and marca != "ArgentinaLuz":
-            descuento = 30
+            descuento_unidad_marca = 30
         elif cantidad == 4 and marca == "ArgentinaLuz" or marca == "FelipeLamparas":
-            descuento = 25
+            descuento_unidad_marca = 25
         elif cantidad == 4 and marca != "ArgentinaLuz" and marca != "FelipeLamparas":
-            descuento = 20
+            descuento_unidad_marca = 20
         elif cantidad == 3 and marca == "ArgentinaLuz":
-            descuento = 15
+            descuento_unidad_marca = 15
         elif cantidad == 3 and marca == "FelipeLamparas":
-            descuento = 10
+            descuento_unidad_marca = 10
         elif cantidad == 3 and marca != "ArgentinaLuz" and marca != "FelipeLamparas":
-            descuento = 5
-        precio_descuento = (precio_unidad * cantidad) - (( precio_unidad * cantidad) * (descuento  / 100))
-        precio_total = precio_descuento
-        if precio_total >= 4000:
-            precio_total = precio_descuento - ((precio_descuento) *(5 / 100))
+            descuento_unidad_marca = 5
+        else:
+            descuento_unidad_marca = 0
+        precio_total = (precio_unidad * cantidad) - (( precio_unidad * cantidad) * (descuento_unidad_marca  / 100))
+        if precio_total > 3999: 
+            descuento_adicional = 5
+            precio_total = precio_total - ((precio_total * descuento_adicional) / 100)
         else:
             pass
-        alert("",f"El importe final es de {precio_total}")      
+        alert("",f"El importe final es de {precio_total}")
+
+        
+
+
         
     
 if __name__ == "__main__":
