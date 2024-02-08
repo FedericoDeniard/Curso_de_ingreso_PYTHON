@@ -5,9 +5,9 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 
-'''
-nombre:
-apellido:
+''' 
+nombre:     Federico
+apellido:   Deniard
 ---
 Ejercicio: Match_02
 ---
@@ -41,7 +41,10 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        mes = self.combobox_mes.get()
+        
+        match mes:
+            case ""
     
     
 if __name__ == "__main__":
