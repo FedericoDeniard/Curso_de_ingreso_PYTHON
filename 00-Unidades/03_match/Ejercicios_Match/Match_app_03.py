@@ -6,8 +6,8 @@ import customtkinter
 
 
 '''
-nombre:
-apellido:
+nombre:     Federico
+apellido:   Deniard
 ---
 Ejercicio: Match_03
 ---
@@ -38,7 +38,10 @@ class App(customtkinter.CTk):
         
     
     def btn_informar_on_click(self):
-        pass
+        global meses
+        match meses:
+            case "Febrero":
+                mensaje = "Estemes no tiene más de 29 días"
     
     
 if __name__ == "__main__":

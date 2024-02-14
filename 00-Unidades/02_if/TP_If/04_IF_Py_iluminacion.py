@@ -49,20 +49,23 @@ class App(customtkinter.CTk):
         cantidad = int(cantidad)
         if  cantidad > 5:
             descuento_unidad_marca = 50
-        elif cantidad == 5 and marca == "ArgentinaLuz":
-            descuento_unidad_marca = 40
-        elif cantidad == 5 and marca != "ArgentinaLuz":
-            descuento_unidad_marca = 30
-        elif cantidad == 4 and marca == "ArgentinaLuz" or marca == "FelipeLamparas":
-            descuento_unidad_marca = 25
-        elif cantidad == 4 and marca != "ArgentinaLuz" and marca != "FelipeLamparas":
-            descuento_unidad_marca = 20
-        elif cantidad == 3 and marca == "ArgentinaLuz":
-            descuento_unidad_marca = 15
-        elif cantidad == 3 and marca == "FelipeLamparas":
-            descuento_unidad_marca = 10
-        elif cantidad == 3 and marca != "ArgentinaLuz" and marca != "FelipeLamparas":
-            descuento_unidad_marca = 5
+        elif cantidad == 5:
+            if marca == "ArgentinaLuz":
+                descuento_unidad_marca = 40
+            else:
+                descuento_unidad_marca = 30
+        elif cantidad == 4:
+            if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                descuento_unidad_marca = 25
+            else:
+                descuento_unidad_marca = 20
+        elif cantidad == 3:
+            if marca == "ArgentinaLuz":
+                descuento_unidad_marca = 15
+            elif marca == "FelipeLamparas":
+                descuento_unidad_marca = 10
+            else:
+                descuento_unidad_marca = 5
         else:
             descuento_unidad_marca = 0
         precio_total = (precio_unidad * cantidad) - (( precio_unidad * cantidad) * (descuento_unidad_marca  / 100))
