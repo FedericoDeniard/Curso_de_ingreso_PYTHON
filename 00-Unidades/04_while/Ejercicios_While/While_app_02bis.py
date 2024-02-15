@@ -32,8 +32,9 @@ class App(customtkinter.CTk):
         contador = 0
         suma = 0
         while contador < 10:
-            contador +=2
-            suma += contador
+            contador +=1
+            if (contador) % 2 == 0:
+                suma += contador
         alert("",f"La suma de los números es {suma}")
     
     
