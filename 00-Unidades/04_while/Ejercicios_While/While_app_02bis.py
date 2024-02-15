@@ -30,11 +30,11 @@ class App(customtkinter.CTk):
     
     def btn_mostrar_iteracion_on_click(self):
         contador = 0
-        acumulador = 0
+        suma = 0
         while contador < 10:
             contador +=2
-            acumulador += contador
-        alert("",f"La suma de los números es {acumulador}")
+            suma += contador
+        alert("",f"La suma de los números es {suma}")
     
     
 if __name__ == "__main__":
