@@ -42,22 +42,23 @@ class App(customtkinter.CTk):
     def btn_comenzar_ingreso_on_click(self):
         maximo = 0
         minimo = 0
+        contador = 0
         while True:
             numero = prompt("","Ingrese un número")
-            
             if numero == None:
                 break
             numero = int(numero)
-
-            if maximo == 0:
+            if contador < 1:
                 maximo = numero
-            elif(numero > maximo):
-                maximo = numero
-                
-            if minimo == 0:
                 minimo = numero
+            contador += 1
+
+            if(numero > maximo):
+                maximo = numero
             elif(numero < minimo):
                 minimo = numero
+            else:
+                pass
 
 
         self.txt_maximo.delete(0,"end")
