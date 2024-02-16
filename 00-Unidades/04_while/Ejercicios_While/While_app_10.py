@@ -37,7 +37,41 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
-        pass
+        suma_negativos = 0
+        suma_positivos = 0
+        cantidad_positivos = 0
+        cantidad_negativos = 0
+        cantidad_ceros = 0
+
+        while True:
+            numero = prompt("","Ingrese un número")
+
+            if numero == None:
+                break
+
+            numero = int(numero)
+            if(numero > 0):
+                cantidad_positivos += 1
+                suma_positivos += numero
+            elif(numero < 0):
+                cantidad_negativos +=1
+                suma_negativos += numero
+            else:
+                cantidad_ceros += 1
+            print("",f"suma positivos: {suma_positivos}\n suma negativos: {suma_negativos}")
+
+        diferencia_positivos_negativos = cantidad_positivos - cantidad_negativos
+        diferencia_mensaje = ""
+        if(diferencia_positivos_negativos > 0):
+            diferencia_mensaje = f"Se ingresaron {diferencia_positivos_negativos} números positivos más que negativos"
+        elif(diferencia_positivos_negativos < 0):
+            diferencia_positivos_negativos = abs(diferencia_positivos_negativos)
+            diferencia_mensaje = f"Se ingresaron {diferencia_positivos_negativos} números negativos más que positivos"
+        else:
+            diferencia_mensaje = "Se ingresó la misma cantidad de números negativos y positivos"
+        alert("", f"Suma de los negativos: {suma_negativos}\n Suma de los positivos: {suma_positivos}\n Cantidad positivos: {cantidad_positivos}\n Cantidad negativos: {cantidad_negativos}\n Cantidad ceros: {cantidad_ceros}\n Diferencia entre positivos y negativos: {diferencia_mensaje}")
+
+
 
     
 if __name__ == "__main__":
