@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre:     Federico
+apellido:   Deniard
 ---
 TP: While_validaciones_rising_btl
 ---
@@ -55,7 +55,54 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
-        pass
+        apellido = None
+        edad = None
+        estado_civil = None
+        legajo = None
+
+        while(not apellido  or not edad or not estado_civil or not legajo):
+            if(not apellido):
+                apellido = prompt("","Ingrese su apellido")
+            elif(not edad):
+                edad = prompt("","Ingrese su edad")
+                edad = int(edad)
+                if(edad  < 18 or edad > 90):
+                    alert("","Tu edad no es valida")
+                    break
+            elif(not estado_civil):
+                estado_civil = prompt("","Ingrese su estado civil: (Soltero/a, Casado/a, Divorciado/a, Viudo/a)")
+                if (estado_civil not in self.combobox_tipo._values):
+                    alert("","Ingrese un estado civil válido")
+                    estado_civil = prompt("","Ingrese su estado civil: (Soltero/a, Casado/a, Divorciado/a, Viudo/a)")
+            else:
+                legajo = ""
+                mensaje_legajo = ""
+                validacion = True
+                legajo = prompt("","Ingrese su número de legajo")
+                while(validacion == True):
+                    if(legajo.startswith("0")):
+                        mensaje_legajo = "Ingrese su legajo sin 0 a la izquierda"
+                        legajo = prompt("",mensaje_legajo)
+                    elif(int(legajo) < 1000 or int(legajo) > 9999):
+                        mensaje_legajo = "Ingrese un número de 4 dígitos"
+                        legajo = prompt("",mensaje_legajo)
+                    else:
+                        validacion = False
+
+
+                    
+        
+        
+        self.txt_apellido.delete(0,"end")
+        self.txt_apellido.insert(0, apellido)
+
+        self.txt_edad.delete(0,"end")
+        self.txt_edad.insert(0,edad)
+
+        self.combobox_tipo.set(estado_civil)
+
+        self.txt_legajo.delete(0,"end")
+        self.txt_legajo.insert(0, legajo)
 
 
 if __name__ == "__main__":
