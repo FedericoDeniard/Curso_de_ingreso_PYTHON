@@ -29,7 +29,7 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         for i in range(1,6):
-            print(i)
+            alert("",i)
        
             
 
