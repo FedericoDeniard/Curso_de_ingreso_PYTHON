@@ -52,9 +52,8 @@ class App(customtkinter.CTk):
             edad = int(edad)
             votos = int(votos)
             promedio_edad += edad
-            contador += 1
             total_votos += votos
-            if mayor_votos == None:
+            if contador == 0:
                 mayor_votos = votos
                 menor_votos = votos
                 candidato_mayor_votos = candidato
@@ -67,18 +66,11 @@ class App(customtkinter.CTk):
                 menor_votos = votos
                 candidato_menor_votos = candidato
                 edad_menor_votos = edad
+            contador += 1
 
 
         promedio_edad = promedio_edad / contador
         alert("",f"El candidato con más votos es {candidato_mayor_votos} \n El candidato con menos votos es {candidato_menor_votos} y su edad es: {edad_menor_votos}\n El promedio de la edad de los candidatos es: {promedio_edad}\n El total de los votos fue de: {total_votos} ")
-        
-
-                
-
-
-
-
-
 
 if __name__ == "__main__":
     app = App()
