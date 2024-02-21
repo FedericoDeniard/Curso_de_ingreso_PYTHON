@@ -28,14 +28,17 @@ class App(customtkinter.CTk):
     def btn_mostrar_on_click(self):
         numero = prompt("","Ingrese un número")
         numero = int(numero)
+        cantidad_divisores = 0
         mensaje = ""
 
-        for i in range(2,numero,+1):
+        for i in range(1,numero,+1):
             if numero % i == 0:
-                mensaje = "El número no es primo"
-                break
-            else:
-                mensaje = "El número es primo"
+                cantidad_divisores += 1
+
+        if cantidad_divisores > 2:
+            mensaje = "El número no es primo"
+        else:
+            mensaje = "El número es primo"
 
         alert("",mensaje)
 

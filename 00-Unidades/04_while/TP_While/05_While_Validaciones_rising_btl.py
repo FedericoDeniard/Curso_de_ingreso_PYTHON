@@ -75,17 +75,14 @@ class App(customtkinter.CTk):
                     alert("","Ingrese un estado civil válido")
                     estado_civil = prompt("","Ingrese su estado civil: (Soltero/a, Casado/a, Divorciado/a, Viudo/a)")
             else:
-                legajo = ""
-                mensaje_legajo = ""
                 validacion = True
                 legajo = prompt("","Ingrese su número de legajo")
+                legajo = int(legajo)
                 while(validacion == True):
-                    if(legajo.startswith("0")):
-                        mensaje_legajo = "Ingrese su legajo sin 0 a la izquierda"
-                        legajo = prompt("",mensaje_legajo)
-                    elif(int(legajo) < 1000 or int(legajo) > 9999):
+                    if(legajo < 1000 or legajo > 9999):
                         mensaje_legajo = "Ingrese un número de 4 dígitos"
                         legajo = prompt("",mensaje_legajo)
+                        legajo = int(legajo)
                     else:
                         validacion = False
 
