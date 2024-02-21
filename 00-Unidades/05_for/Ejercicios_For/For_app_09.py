@@ -3,15 +3,17 @@ from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
+import random
 
 '''
-nombre:
-apellido:
+nombre:     Federico
+apellido:   Deniard
 ---
 Ejercicio: for_09
 ---
 Enunciado:
-Al comenzar el juego generamos un número secreto del 1 al 100, se pedira al usuario el ingreso de un numero por prompt y si el número ingresado es el mismo que el número secreto se dará por terminado el juego con un mensaje similar a este: 
+Al comenzar el juego generamos un número secreto del 1 al 100, se pedira al usuario el ingreso de un numero por prompt y si el número ingresado es el
+mismo que el número secreto se dará por terminado el juego con un mensaje similar a este: 
 
 En esta oportunidad el juego evaluará tus aptitudes a partir de la cantidad de intentos, por lo cual se informará lo siguiente:
     1° intento: “Usted es un psíquico”.
@@ -37,7 +39,44 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        numero = prompt("","Ingrese un número")
+        numero = int(numero)
+        respuesta = random.randint(1,100)
+        contador = 0
+        distancia = ""
+        mensaje = ""
+        print("",f"Respuesta: {respuesta}\n Número: {numero}")
+    
+        for i in range(0,7):
+            distancia_respuesta = numero - respuesta
+            contador += 1
+            if numero != respuesta:
+                if distancia_respuesta < 0:
+                    distancia = f"Te falta..."
+                else:
+                    distancia = f"Te pasaste..."
+                alert("",distancia)
+
+            if numero == respuesta:
+                match contador:
+                    case 1:
+                        mensaje = "Usted es un psíquico"
+                    case 2:
+                        mensaje = "Excelente percepción"
+                    case 3:
+                        mensaje = "Esto es suerte"
+                    case 7:
+                        mensaje = "Perdiste, suerte para la próxima"
+                    case _:
+                        mensaje = "Excelente técnica"
+                break
+            numero = prompt("","Ingrese un nuevo número")
+            numero = int(numero)
+
+        alert("",f"{mensaje}")
+                    
+
+
                 
 
     
