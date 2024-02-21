@@ -91,7 +91,7 @@ class App(customtkinter.CTk):
                 edad_nb += edad
                 if edad > 24 and edad < 41 and tecnologia != "JS" and puesto == "Ssr":
                      nb_ssr_js_asp__net += 1
-                     
+
             if i == 0:
                 jr_mas_joven = edad
                 nombre_jr_mas_joven = nombre
@@ -107,11 +107,8 @@ class App(customtkinter.CTk):
                 case _:
                     postulantes_asp__net += 1
 
-                    
-
             cantidad_postulantes += 1
         
-
         if postulantes_python > postulantes_js and postulantes_python > postulantes_asp__net:
             tecnologia_mas_postulantes = "Python"
         elif postulantes_js > postulantes_asp__net:
@@ -128,9 +125,6 @@ class App(customtkinter.CTk):
         porcentaje_nb = (cantidad_nb / cantidad_postulantes) * 100
         
         print(f"Cantidad de postulantes de genero no binario (NB) que programan en ASP.NET o JS {nb_ssr_js_asp__net} \nNombre del Jr con menor edad: {nombre_jr_mas_joven}\nPromedio edad hombres: {promedio_edad_hombres}\nPromedio edad mujeres: {promedio_edad_mujeres}\nPromedio edad nb: {promedio_edad_nb}\nTeconología con más postulantes:{tecnologia_mas_postulantes}\nPorcentaje hombres: {porcentaje_hombres}\nPorcentaje mujeres: {porcentaje_mujeres}\nPorcentaje nb: {porcentaje_nb}")
- 
-
-
 
 if __name__ == "__main__":
     app = App()
