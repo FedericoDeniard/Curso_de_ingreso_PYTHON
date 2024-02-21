@@ -48,16 +48,16 @@ Para determinar que informe hacer, tenga en cuenta lo siguiente:
     
 EL RESTO DE LOS INFORMES LOS PUEDE IGNORAR. 
 C) Al presionar el boton "Mostrar Informe 2"
-    #! 0) - Cantidad de pokemones de tipo Fuego
-    #! 1) - Cantidad de pokemones de tipo Electrico
-    #! 2) - Nombre, tipo y Poder del pokemon con el poder mas alto
-    #! 3) - Nombre, tipo y Poder del pokemon con el poder mas bajo
-    #! 4) - Cantidad de pokemones, con mas de 100 de poder.
-    #! 5) - Cantidad de pokemones, con menos de 100 de poder
-    #! 6) - tipo de los pokemones del tipo que mas pokemones posea 
-    #! 7) - tipo de los pokemones del tipo que menos pokemones posea 
-    #! 8) - el promedio de poder de todos los ingresados
-    #! 9) - el promedio de poder de todos los pokemones de Electrico
+    #! 0) - Cantidad de pokemones de tipo Fuego  //  Hecho
+    #! 1) - Cantidad de pokemones de tipo Electrico  //  Hecho  
+    #! 2) - Nombre, tipo y Poder del pokemon con el poder mas alto  //  Hecho
+    #! 3) - Nombre, tipo y Poder del pokemon con el poder mas bajo  // Hecho
+    #! 4) - Cantidad de pokemones, con mas de 100 de poder.  // Hecho
+    #! 5) - Cantidad de pokemones, con menos de 100 de poder  // Hecho
+    #! 6) - tipo de los pokemones del tipo que mas pokemones posea   // Hecho
+    #! 7) - tipo de los pokemones del tipo que menos pokemones posea // Hecho
+    #! 8) - el promedio de poder de todos los ingresados  // Hecho
+    #! 9) - el promedio de poder de todos los pokemones de Electrico  // Hecho
 '''
 
 class App(customtkinter.CTk):
@@ -71,9 +71,9 @@ class App(customtkinter.CTk):
         self.label_title = customtkinter.CTkLabel(master=self, text=f"Pokedex de {NOMBRE}", font=("Arial", 20, "bold"))
         self.label_title.grid(row=0, column=0, columnspan=2, padx=20, pady=10)
         
-        self.image = tk.PhotoImage(file='./modelos_examenes/pokedex_v1/UTN_Pokedex_App_v1.png')
-        self.top_banner = customtkinter.CTkLabel(master = self, image = self.image, text = 'Banner')
-        self.top_banner.grid_configure(row = 1, column = 0, padx = 20, pady = 5, columnspan = 2, rowspan = 1, sticky = 'we')
+        # self.image = tk.PhotoImage(file='./modelos_examenes/pokedex_v1/UTN_Pokedex_App_v1.png')
+        # self.top_banner = customtkinter.CTkLabel(master = self, image = self.image, text = 'Banner')
+        # self.top_banner.grid_configure(row = 1, column = 0, padx = 20, pady = 5, columnspan = 2, rowspan = 1, sticky = 'we')
 
         self.btn_cargar = customtkinter.CTkButton(master=self, text="Cargar Pokedex", command=self.btn_cargar_pokedex_on_click)
         self.btn_cargar.grid(row=2, pady=10, columnspan=2, sticky="nsew")
@@ -104,8 +104,121 @@ class App(customtkinter.CTk):
 
 
     def btn_cargar_pokedex_on_click(self):
-        pass
+        lista_pokemones = ""
+
+        mayor_poder = 0
+        pokemon_mas_poderoso = ""
+
+        menor_poder = 0
+        pokemon_menos_poderoso = ""
+
+        poder_mayor_cien = 0
+        poder_menor_cien = 0
+
+        Agua =  0
+        Tierra = 0
+        Psiquico = 0
+        Fuego = 0
+        Electrico = 0
+        tipo_menos_pokemones = ""
+        tipo_mas_pokemones = ""
+
+        total_poder = 0
+        total_pokemones = 0
+
+        poder_electricos = 0
+
+        for i in range(1,4):
+            nombre = prompt("",f"Nombre del pokemon {i}:")
+            while nombre == "" or nombre is None:
+                nombre = prompt("",f"Ingrese el nombre del pokemon {i}:")
+
+            tipo = prompt("",f"Tipo del pokemon {i}:")
+            while tipo != "Agua" and tipo != "Tierra" and tipo != "Psiquico" and tipo != "Fuego" and tipo != "Electrico" or tipo is None:
+                tipo = prompt("","Ingrese un tipo válido (Agua, Tierra, Psiquico, Fuego o Electrico):")
+
+            poder = prompt("",f"Poder del pokemon {i}:")
+            poder = int(poder)
+            while poder < 50 or poder > 200:
+                poder = prompt("","El poder debe estar entre 50 y 200.\n Ingrese  el poder del pokemon:")
+
+            pokemon = f"{i}: {nombre} - {tipo} - {poder}\n"
+            lista_pokemones += pokemon
+            
+            total_poder += poder
+            total_pokemones += 1
+            
+            match tipo:
+                case "Agua":
+                        Agua += 1
+                case "Tierra":
+                        Tierra += 1
+                case "Psiquico":
+                        Psiquico += 1
+                case "Fuego":
+                        Fuego += 1
+                case "Electrico":
+                        Electrico += 1
+                        poder_electricos += poder
+            
+            if i == 0:
+                mayor_poder = poder
+                pokemon_mas_poderoso = f"{nombre} - {tipo} - {poder}"
+                menor_poder = poder
+                pokemon_menos_poderoso = f"{nombre} - {tipo} - {poder}"
+            elif poder > mayor_poder:
+                mayor_poder = poder
+                pokemon_mas_poderoso = f"{nombre} - {tipo} - {poder}"
+            elif poder < menor_poder:
+                 menor_poder = poder
+                 pokemon_menos_poderoso = f"{nombre} - {tipo} - {poder}"
+
+            if poder > 99:
+                 poder_mayor_cien += 1
+            else:
+                 poder_menor_cien +=1
+
+        #Función para obtener el tipo con más pokemones ingresados
+        if Agua > Tierra and Agua > Tierra and Agua > Psiquico and Agua > Fuego and Agua > Electrico:
+            tipo_mas_pokemones = "Agua"
+        elif Tierra > Psiquico and Tierra > Fuego and Tierra > Electrico:
+            tipo_mas_pokemones = "Tierra"
+        elif Psiquico > Fuego and Psiquico > Electrico:
+                tipo_mas_pokemones = "Psiquico"
+        elif Fuego > Electrico:
+                tipo_mas_pokemones = "Fuego"
+        else:
+                tipo_mas_pokemones = "Electrico"
+
+        cantidad_fuego = Fuego
+        cantidad_electrico = Electrico
+
+        #Función para obtener el tipo con menos pokemones ingresados
+        if Agua == 0:
+            Agua = 1000
+        if Tierra == 0:
+            Tierra = 1000
+        if Psiquico == 0:
+         Psiquico = 1000
+        if Fuego == 0:
+            Fuego = 1000
+        if Electrico == 0:
+         Electrico = 1000
+            
+        if Agua < Tierra and Agua < Tierra and Agua < Psiquico and Agua < Fuego and Agua < Electrico:
+            tipo_menos_pokemones = "Agua"
+        elif Tierra < Psiquico and Tierra < Fuego and Tierra < Electrico:
+            tipo_menos_pokemones = "Tierra"
+        elif Psiquico < Fuego and Psiquico < Electrico:
+                tipo_menos_pokemones = "Psiquico"
+        elif Fuego < Electrico:
+                tipo_menos_pokemones = "Fuego"
+        else:
+                tipo_menos_pokemones = "Electrico"
         
+        promedio_poder = total_poder / total_pokemones
+        promedio_poder_electricos = poder_electricos / Electrico
+        print(f"{lista_pokemones}\nEl pokemon más poderoso es: {pokemon_mas_poderoso}\nEl pokemon menos poderoso es: {pokemon_menos_poderoso}\nEl tipo con menos pokemones es: {tipo_menos_pokemones}\nEl tipo con más pokemones es: {tipo_mas_pokemones}\n{poder_menor_cien} Pokemon/es tienen menos de 100 de poder\n{poder_mayor_cien} Pokemon/es tienen más de 100 de poder\nEl promedio de poder es de: {promedio_poder}\nEl promedio de poder de los electricos es de: {promedio_poder_electricos}\nLa cantidad de pokemones de fuego es de: {cantidad_fuego}\nLa cantidad de pokemones electrico es de: {cantidad_electrico}")        
 
     def btn_mostrar_informe_1_on_click(self):
         pass
