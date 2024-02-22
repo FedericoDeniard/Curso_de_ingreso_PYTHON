@@ -88,6 +88,8 @@ class App(customtkinter.CTk):
 
         for i in range(0,pacientes):
             nombre = prompt("",f"Ingrese el nombre del paciente {i+1}:")
+            while nombre.isdigit():
+                nombre = prompt("",f"Nombre inválido, ingrese nuevamente")
 
             temperatura = prompt("",f"Ingrese la temperatura del paciente {i+1}:")
             temperatura = int(temperatura)
