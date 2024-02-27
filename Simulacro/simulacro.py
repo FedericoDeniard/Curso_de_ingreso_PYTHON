@@ -112,7 +112,7 @@ class App(customtkinter.CTk):
                     masculinos += 1
                 case "f":
                     femeninos += 1
-                    if temperatura == 0:
+                    if femenino_temperatura_baja == 0:
                         femenino_temperatura_baja = temperatura
                         femenino_nombre_temperatura_baja = nombre
                     elif temperatura < femenino_temperatura_baja:
@@ -136,6 +136,7 @@ class App(customtkinter.CTk):
             promedio_edad_nb = "No se ingresaron personas de este género"
         else:
             promedio_edad_nb = suma_edad_nb / no_binarios
+
         porcentaje_fiebre = (personas_con_fiebre / pacientes) * 100
         porcentaje_sanas =  ((pacientes - personas_con_fiebre) / pacientes ) * 100
 
