@@ -40,7 +40,7 @@ class App(customtkinter.CTk):
                 cantidad_primos += 1
                 numeros_primos = numeros_primos + f" {i}"
 
-        alert("",f"La cantidad de números primos entre 1 y {numero} es: {cantidad_primos} y son: {numeros_primos}")
+        alert("",f"La cantidad de números primos entre 1 y {numero} es: {cantidad_primos} y son:{numeros_primos}")
     
 if __name__ == "__main__":
     app = App()
